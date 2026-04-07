@@ -4,388 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web Dev Project: Roadmap & Quiz Arena</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Friendly Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Library and Background */
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: #fefce8; /* Pale yellow paper color */
-            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-            background-size: 20px 20px; /* Grid paper effect */
-            color: #1f2937;
-        }
-
-        h1, h2, h3, .comic {
-            font-family: 'Comic Neue', cursive;
-        }
-
-        /* "Amateur" Sketchy Border Style */
-        .sketch-border {
-            border: 4px solid #1f2937;
-            box-shadow: 8px 8px 0px #1f2937;
-            transition: all 0.2s ease;
-        }
-
-        .sketch-border:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 10px 10px 0px #1f2937;
-        }
-
-        .btn-yellow { background-color: #fbbf24; }
-        .btn-blue { background-color: #60a5fa; color: white; }
-        .btn-red { background-color: #f87171; color: white; }
-        .btn-green { background-color: #4ad66d; }
-
-        .roadmap-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-        }
-
-        .roadmap-item::before {
-            content: '📍';
-            position: absolute;
-            left: -10px;
-            top: 0;
-            font-size: 1.5rem;
-        }
-
-        .quiz-option {
-            cursor: pointer;
-            border: 3px solid #1f2937;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            background: white;
-            border-radius: 12px;
-            display: block;
-            width: 100%;
-            text-align: left;
-            font-weight: bold;
-        }
-
-        .quiz-option:hover {
-            background-color: #f3f4f6;
-        }
-
-        .selected-option {
-            background-color: #60a5fa !important;
-            color: white !important;
-        }
-
-        /* Animation */
-        @keyframes bounceIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            70% { transform: scale(1.05); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .animate-bounce-in { animation: bounceIn 0.5s ease forwards; }
-    </style>
+    <link rel="stylesheet" href="demo1.css">
 </head>
-<body class="min-h-screen p-4 md:p-8">
+<body class="body-main">
 
-    <!-- Header Section -->
-    <header class="max-w-4xl mx-auto mb-12 text-center">
-        <div class="inline-block sketch-border bg-white p-6 rotate-1">
-            <h1 class="text-4xl font-bold mb-2">🚀 My Learning Project</h1>
-            <p class="text-lg font-medium text-gray-600">Roadmap Generator + Cool Quiz Arena!</p>
+    <header class="header-main">
+        <div class="header-title">
+            <h1 class="title-main">🚀 My Learning Project</h1>
+            <p class="subtitle-main">Roadmap Generator + Cool Quiz Arena!</p>
         </div>
         
-        <nav class="mt-8 flex justify-center gap-4 font-bold uppercase tracking-wide">
-            <button onclick="showSection('home')" class="hover:text-blue-500">🏠 Home</button>
-            <button onclick="showSection('roadmap')" class="hover:text-blue-500">🗺️ Roadmap</button>
-            <button onclick="showSection('quiz')" class="hover:text-blue-500">🧠 Quiz Arena</button>
+        <nav class="nav-main">
+            <button onclick="showSection('home')" class="nav-btn">🏠 Home</button>
+            <button onclick="showSection('roadmap')" class="nav-btn">🗺️ Roadmap</button>
+            <button onclick="showSection('quiz')" class="nav-btn">🧠 Quiz Arena</button>
         </nav>
     </header>
 
-    <main class="max-w-3xl mx-auto">
+    <main class="main-content">
 
         <!-- HOME SECTION -->
         <section id="home-section" class="animate-bounce-in">
-            <div class="sketch-border bg-white p-8 space-y-6 -rotate-1">
-                <h2 class="text-3xl font-bold underline decoration-yellow-400">Welcome to our project!</h2>
-                <p class="text-lg leading-relaxed">
+            <div class="home-card">
+                <h2 class="section-title">Welcome to our project!</h2>
+                <p class="section-text">
                     Hello! This is our combination project featuring an <b>Interactive Quiz Arena</b> and a <b>Roadmap Generator</b>. 
                     We used JavaScript DOM manipulation to create this dynamic interface.
                 </p>
                 
-                <div class="bg-blue-50 p-4 border-2 border-dashed border-blue-200 rounded-lg">
-                    <h3 class="font-bold text-blue-800 mb-2 underline">Created By:</h3>
-                    <ul class="text-sm space-y-2 text-blue-700 font-bold">
+                <div class="creators-card">
+                    <h3 class="creators-title">Created By:</h3>
+                    <ul class="creators-list">
                         <li>👤 TRINABHA DIXIT - 24BYB0026</li>
                         <li>👤 SHIKHAR SAHAY - 24BYB0029</li>
                         <li>👤 BHARGAV MAHANTA - 24BYB0046</li>
                     </ul>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                    <button onclick="showSection('roadmap')" class="sketch-border btn-blue p-4 font-bold text-xl">Create Roadmap ✏️</button>
-                    <button onclick="showSection('quiz')" class="sketch-border btn-yellow p-4 font-bold text-xl text-gray-800">Take a Quiz 📝</button>
+                <div class="home-buttons">
+                    <button onclick="showSection('roadmap')" class="btn-roadmap">Create Roadmap ✏️</button>
+                    <button onclick="showSection('quiz')" class="btn-quiz">Take a Quiz 📝</button>
                 </div>
             </div>
         </section>
 
         <!-- ROADMAP SECTION -->
-        <section id="roadmap-section" class="hidden space-y-8 animate-bounce-in">
-            <div class="sketch-border bg-white p-6">
-                <h2 class="text-3xl font-bold mb-4">Choose a Domain:</h2>
-                <div class="flex flex-wrap gap-3">
-                    <button onclick="generateRoadmap('web')" class="sketch-border bg-gray-100 px-4 py-2 font-bold hover:bg-blue-100">Web Basics</button>
-                    <button onclick="generateRoadmap('frontend')" class="sketch-border bg-gray-100 px-4 py-2 font-bold hover:bg-blue-100">React JS</button>
-                    <button onclick="generateRoadmap('fullstack')" class="sketch-border btn-green px-4 py-2 font-bold">FULL SYLLABUS</button>
+        <section id="roadmap-section" class="hidden roadmap-section animate-bounce-in">
+            <div class="roadmap-card">
+                <h2 class="section-title roadmap-title">Choose a Domain:</h2>
+                <div class="domain-buttons">
+                    <button onclick="generateRoadmap('web')" class="domain-btn web-btn">Web Basics</button>
+                    <button onclick="generateRoadmap('frontend')" class="domain-btn frontend-btn">React JS</button>
+                    <button onclick="generateRoadmap('fullstack')" class="domain-btn fullstack-btn">FULL SYLLABUS</button>
                 </div>
             </div>
 
-            <div id="roadmap-display" class="space-y-6">
-                <div class="text-center py-20 opacity-30">
-                    <p class="text-xl italic">Click a button above to generate your plan!</p>
+            <div id="roadmap-display" class="roadmap-display">
+                <div class="placeholder-text">
+                    <p class="placeholder-p">Click a button above to generate your plan!</p>
                 </div>
             </div>
         </section>
 
         <!-- QUIZ SECTION -->
-        <section id="quiz-section" class="hidden space-y-6 animate-bounce-in">
-            <div id="quiz-intro" class="sketch-border bg-white p-8 text-center space-y-6">
-                <div class="text-6xl">🤓</div>
-                <h2 class="text-3xl font-bold">Quiz Time!</h2>
-                <p>Pick a category to test your knowledge from the modules.</p>
+        <section id="quiz-section" class="hidden quiz-section animate-bounce-in">
+            <div id="quiz-intro" class="quiz-intro">
+                <div class="quiz-emoji">🤓</div>
+                <h2 class="section-title quiz-title">Quiz Time!</h2>
+                <p class="quiz-desc">Pick a category to test your knowledge from the modules.</p>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <button onclick="startQuiz('Fundamentals')" class="sketch-border p-4 font-bold hover:bg-yellow-50">1. Web Basics</button>
-                    <button onclick="startQuiz('CSS')" class="sketch-border p-4 font-bold hover:bg-yellow-50">2. CSS Styling</button>
-                    <button onclick="startQuiz('JavaScript')" class="sketch-border p-4 font-bold hover:bg-yellow-50">3. JavaScript</button>
-                    <button onclick="startQuiz('React')" class="sketch-border p-4 font-bold hover:bg-yellow-50">4. React Core</button>
+                <div class="quiz-categories">
+                    <button onclick="startQuiz('Fundamentals')" class="category-btn">1. Web Basics</button>
+                    <button onclick="startQuiz('CSS')" class="category-btn">2. CSS Styling</button>
+                    <button onclick="startQuiz('JavaScript')" class="category-btn">3. JavaScript</button>
+                    <button onclick="startQuiz('React')" class="category-btn">4. React Core</button>
                 </div>
             </div>
 
             <!-- Quiz Play Area -->
-            <div id="quiz-active" class="hidden sketch-border bg-white p-8 relative">
-                <div class="flex justify-between items-center mb-6 font-bold border-b-4 border-gray-100 pb-4">
-                    <div id="quiz-category" class="text-blue-500 uppercase tracking-tighter">CATEGORY</div>
-                    <div class="flex items-center gap-4">
-                        <span id="quiz-progress" class="text-sm">Q1 / 5</span>
-                        <div id="quiz-timer" class="bg-red-100 text-red-500 px-3 py-1 rounded-full border-2 border-red-500">15s</div>
+            <div id="quiz-active" class="hidden quiz-active">
+                <div class="quiz-header">
+                    <div id="quiz-category" class="quiz-category">CATEGORY</div>
+                    <div class="quiz-info">
+                        <span id="quiz-progress" class="quiz-progress">Q1 / 5</span>
+                        <div id="quiz-timer" class="quiz-timer">15s</div>
                     </div>
                 </div>
 
-                <div id="quiz-question-container">
-                    <h3 id="question-text" class="text-2xl font-bold mb-8 text-gray-800">Wait, question is loading...</h3>
+                <div id="quiz-question-container" class="quiz-question">
+                    <h3 id="question-text" class="question-text">Wait, question is loading...</h3>
                     <div id="options-container">
                         <!-- Options via JS -->
                     </div>
                 </div>
 
-                <div class="mt-10 flex justify-between">
-                    <button onclick="quitQuiz()" class="text-red-400 font-bold hover:underline">I give up</button>
-                    <button id="next-btn" onclick="handleNext()" class="sketch-border btn-blue px-8 py-3 font-bold disabled:opacity-30 disabled:cursor-not-allowed">Next Question ➡️</button>
+                <div class="quiz-footer">
+                    <button onclick="quitQuiz()" class="quit-btn">I give up</button>
+                    <button id="next-btn" onclick="handleNext()" class="next-btn">Next Question ➡️</button>
                 </div>
             </div>
 
             <!-- Quiz Summary -->
-            <div id="quiz-summary" class="hidden sketch-border bg-white p-8 text-center">
-                <h2 class="text-4xl font-bold mb-4">Finished! 🎉</h2>
-                <div id="score-circle" class="text-6xl font-bold text-blue-500 mb-4">0%</div>
-                <p id="summary-msg" class="text-lg font-bold mb-8 italic">Evaluating performance...</p>
+            <div id="quiz-summary" class="hidden quiz-summary">
+                <h2 class="summary-title">Finished! 🎉</h2>
+                <div id="score-circle" class="score-circle">0%</div>
+                <p id="summary-msg" class="summary-msg">Evaluating performance...</p>
                 
-                <div class="flex flex-col gap-4 max-w-xs mx-auto">
-                    <button onclick="showSection('quiz')" class="sketch-border btn-yellow p-3 font-bold">Try Again</button>
-                    <button onclick="showSection('roadmap')" class="sketch-border btn-blue p-3 font-bold">Back to Roadmap</button>
+                <div class="summary-buttons">
+                    <button onclick="showSection('quiz')" class="summary-btn try-again">Try Again</button>
+                    <button onclick="showSection('roadmap')" class="summary-btn back-roadmap">Back to Roadmap</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="mt-20 py-8 text-center text-gray-500 font-bold border-t-2 border-dashed border-gray-300">
-        <p>Built with ❤️ by:</p>
-        <p class="text-gray-800 text-sm mt-1">TRINABHA DIXIT (24BYB0026), SHIKHAR SAHAY (24BYB0029), BHARGAV MAHANTA (24BYB0046)</p>
+    <footer class="footer-main">
+        <p class="footer-text">Built with ❤️ by:</p>
+        <p class="footer-names">TRINABHA DIXIT (24BYB0026), SHIKHAR SAHAY (24BYB0029), BHARGAV MAHANTA (24BYB0046)</p>
     </footer>
 
-    <script>
-        // SYLLABUS DATA
-        const syllabusData = {
-            web: [
-                { module: 1, title: "Introduction", topics: ["WWW History", "Telnet/FTP", "E-commerce", "Video Conferencing"], taxonomy: "Remember" },
-                { module: 2, title: "ISP & Servers", topics: ["IP Address", "DNS", "Browsers", "Web vs App Servers"], taxonomy: "Understand" },
-                { module: 2, title: "HTML Basics", topics: ["HTML Tags", "Structure", "Block Elements", "Char Refs"], taxonomy: "Understand" }
-            ],
-            frontend: [
-                { module: 6, title: "React Basics", topics: ["Setup", "JSX Basics", "Components", "Component API"], taxonomy: "Understand" },
-                { module: 7, title: "State & Data", topics: ["React Props", "State Management", "Hooks", "Routing"], taxonomy: "Apply" }
-            ],
-            fullstack: [
-                { module: 1, title: "Introduction", topics: ["WWW History", "Cloud Computing", "Video Conferencing"], taxonomy: "Remember" },
-                { module: 2, title: "HTML Markup", topics: ["Semantic Elements", "Images", "Nav/Header/Footer"], taxonomy: "Apply" },
-                { module: 3, title: "CSS & Styling", topics: ["Selectors", "Box Model", "Hosting", "GIT"], taxonomy: "Apply" },
-                { module: 4, title: "JavaScript DOM", topics: ["DOM", "Forms", "Event Handlers"], taxonomy: "Create" },
-                { module: 5, title: "Advanced JS", topics: ["Loops", "Canvas Drawing", "Event Listeners"], taxonomy: "Analyze" },
-                { module: 6, title: "React Basics", topics: ["JSX", "Life Cycle", "Constructors"], taxonomy: "Understand" },
-                { module: 7, title: "Advanced React", topics: ["Hooks", "Routing", "Props Validation"], taxonomy: "Apply" }
-            ]
-        };
-
-        // QUIZ QUESTIONS
-        const quizQuestions = {
-            Fundamentals: [
-                { q: "Which server handles dynamic business logic?", a: ["Web Server", "Application Server", "IP Address", "Telnet"], correct: 1 },
-                { q: "Which is a character reference in HTML?", a: ["<div>", "<span>", "&nbsp;", "<br>"], correct: 2 },
-                { q: "What does DNS stand for?", a: ["Digital Name Server", "Domain Name System", "Data Network Service", "None"], correct: 1 },
-                { q: "Which protocol is for remote file transfer?", a: ["HTTP", "SMTP", "FTP", "DNS"], correct: 2 },
-                { q: "Is <span> a block element?", a: ["Yes", "No"], correct: 1 }
-            ],
-            CSS: [
-                { q: "Which property is part of the box model?", a: ["Color", "Font-Size", "Padding", "Display"], correct: 2 },
-                { q: "How do you select an element by ID?", a: [".my-id", "#my-id", "id=my-id", "*my-id"], correct: 1 },
-                { q: "Which property allows stacking elements?", a: ["position", "display", "z-index", "stack-level"], correct: 2 },
-                { q: "External CSS is linked using which tag?", a: ["<style>", "<link>", "<css>", "<script>"], correct: 1 },
-                { q: "Which property makes text bold?", a: ["font-style", "font-weight", "text-decoration", "text-bold"], correct: 1 }
-            ],
-            JavaScript: [
-                { q: "What does DOM stand for?", a: ["Data Order Mode", "Document Object Model", "Digital Object Method", "None"], correct: 1 },
-                { q: "Which event detects a mouse leaving an element?", a: ["onclick", "onmouseover", "onmouseout", "onchange"], correct: 2 },
-                { q: "Which loop runs at least once?", a: ["for loop", "while loop", "do-while loop", "all of them"], correct: 2 },
-                { q: "Which tag provides a drawing area in JS?", a: ["<svg>", "<img>", "<canvas>", "<div>"], correct: 2 },
-                { q: "How do you get a value from a form input?", a: [".getText()", ".value", ".content", ".innerText"], correct: 1 }
-            ],
-            React: [
-                { q: "What is JSX?", a: ["JavaScript XML", "JSON Extension", "Java X-Ray", "None"], correct: 0 },
-                { q: "Which hook manages component state?", a: ["useEffect", "useContext", "useState", "useReducer"], correct: 2 },
-                { q: "React was created by which company?", a: ["Google", "Meta (Facebook)", "Microsoft", "Twitter"], correct: 1 },
-                { q: "Props are read-only.", a: ["True", "False"], correct: 0 },
-                { q: "What helps you inspect the React component tree?", a: ["Console", "Network Tab", "React Dev Tools", "Sources"], correct: 2 }
-            ]
-        };
-
-        let currentQuiz = {
-            category: "", questions: [], currentIndex: 0, score: 0, timer: 15, timerInterval: null, startTime: null, selectedAnswer: null
-        };
-
-        // UI HELPERS
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
-            document.getElementById(`${sectionId}-section`).classList.remove('hidden');
-            if (sectionId !== 'quiz') quitQuiz();
-            window.scrollTo(0, 0);
-        }
-
-        // ROADMAP LOGIC
-        function generateRoadmap(domain) {
-            const display = document.getElementById('roadmap-display');
-            display.innerHTML = '';
-            
-            syllabusData[domain].forEach((step, index) => {
-                const card = document.createElement('div');
-                card.className = 'sketch-border bg-white p-6 roadmap-item animate-bounce-in';
-                card.style.animationDelay = `${index * 0.1}s`;
-                
-                card.innerHTML = `
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold text-blue-500 uppercase text-xs">Module ${step.module}</span>
-                        <span class="bg-yellow-100 px-2 py-1 text-[10px] font-bold rounded">${step.taxonomy}</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">${step.title}</h3>
-                    <ul class="list-disc list-inside text-gray-600 font-medium">
-                        ${step.topics.map(t => `<li>${t}</li>`).join('')}
-                    </ul>
-                `;
-                display.appendChild(card);
-            });
-        }
-
-        // QUIZ LOGIC
-        function startQuiz(category) {
-            currentQuiz.category = category;
-            currentQuiz.questions = [...quizQuestions[category]].sort(() => Math.random() - 0.5);
-            currentQuiz.currentIndex = 0;
-            currentQuiz.score = 0;
-            currentQuiz.startTime = Date.now();
-            
-            document.getElementById('quiz-intro').classList.add('hidden');
-            document.getElementById('quiz-active').classList.remove('hidden');
-            document.getElementById('quiz-summary').classList.add('hidden');
-            document.getElementById('quiz-category').innerText = `Category: ${category}`;
-            
-            loadQuestion();
-        }
-
-        function loadQuestion() {
-            const q = currentQuiz.questions[currentQuiz.currentIndex];
-            currentQuiz.selectedAnswer = null;
-            currentQuiz.timer = 15;
-            
-            document.getElementById('quiz-progress').innerText = `Question ${currentQuiz.currentIndex + 1} / ${currentQuiz.questions.length}`;
-            document.getElementById('question-text').innerText = q.q;
-            document.getElementById('quiz-timer').innerText = `${currentQuiz.timer}s`;
-            
-            const optionsBox = document.getElementById('options-container');
-            optionsBox.innerHTML = '';
-            
-            q.a.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'quiz-option';
-                btn.innerText = opt;
-                btn.onclick = () => selectOption(idx, btn);
-                optionsBox.appendChild(btn);
-            });
-
-            document.getElementById('next-btn').disabled = true;
-            startTimer();
-        }
-
-        function startTimer() {
-            clearInterval(currentQuiz.timerInterval);
-            currentQuiz.timerInterval = setInterval(() => {
-                currentQuiz.timer--;
-                document.getElementById('quiz-timer').innerText = `${currentQuiz.timer}s`;
-                if (currentQuiz.timer <= 0) {
-                    clearInterval(currentQuiz.timerInterval);
-                    handleNext();
-                }
-            }, 1000);
-        }
-
-        function selectOption(index, element) {
-            currentQuiz.selectedAnswer = index;
-            document.querySelectorAll('.quiz-option').forEach(btn => btn.classList.remove('selected-option'));
-            element.classList.add('selected-option');
-            document.getElementById('next-btn').disabled = false;
-        }
-
-        function handleNext() {
-            const q = currentQuiz.questions[currentQuiz.currentIndex];
-            if (currentQuiz.selectedAnswer === q.correct) currentQuiz.score++;
-
-            currentQuiz.currentIndex++;
-            if (currentQuiz.currentIndex < currentQuiz.questions.length) {
-                loadQuestion();
-            } else {
-                showSummary();
-            }
-        }
-
-        function showSummary() {
-            clearInterval(currentQuiz.timerInterval);
-            const percentage = Math.round((currentQuiz.score / currentQuiz.questions.length) * 100);
-            
-            document.getElementById('quiz-active').classList.add('hidden');
-            document.getElementById('quiz-summary').classList.remove('hidden');
-            
-            document.getElementById('score-circle').innerText = `${percentage}%`;
-            
-            let msg = "";
-            if (percentage >= 80) msg = "Excellent work! You are an expert! 🌟";
-            else if (percentage >= 50) msg = "Good effort! Keep studying! 📚";
-            else msg = "You should check the roadmap again... 😅";
-            
-            document.getElementById('summary-msg').innerText = msg;
-        }
-
-        function quitQuiz() {
-            clearInterval(currentQuiz.timerInterval);
-            document.getElementById('quiz-intro').classList.remove('hidden');
-            document.getElementById('quiz-active').classList.add('hidden');
-            document.getElementById('quiz-summary').classList.add('hidden');
-        }
-    </script>
+    <script src="demo1.js"></script>
 </body>
 </html>
