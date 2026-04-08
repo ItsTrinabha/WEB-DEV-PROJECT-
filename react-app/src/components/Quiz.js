@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { quizQuestions } from '../data';
 
 function Quiz({ showSection }) {
@@ -15,7 +15,40 @@ function Quiz({ showSection }) {
   });
 
   const [timer, setTimer] = useState(15);
-  const [timerInterval, setTimerInterval] = useState(null);
+
+  const showSummaryScreen = useCallback((score, total) => {
+    setCurrentQuiz(prev => ({
+      ...prev,
+      score: score
+    }));
+    
+    setShowActive(false);
+    setShowSummary(true);
+    setShowIntro(false);
+  }, []);
+
+  const handleNext = useCallback(() => {
+    const currentQuestion = currentQuiz.questions[currentQuiz.currentIndex];
+    let newScore = currentQuiz.score;
+
+    if (currentQuiz.selectedAnswer === currentQuestion.correct) {
+      newScore++;
+    }
+
+    const newIndex = currentQuiz.currentIndex + 1;
+
+    if (newIndex < currentQuiz.questions.length) {
+      setCurrentQuiz(prev => ({
+        ...prev,
+        currentIndex: newIndex,
+        score: newScore,
+        selectedAnswer: null
+      }));
+      setTimer(15);
+    } else {
+      showSummaryScreen(newScore, currentQuiz.questions.length);
+    }
+  }, [currentQuiz, showSummaryScreen]);
 
   // Timer effect
   useEffect(() => {
@@ -33,7 +66,7 @@ function Quiz({ showSection }) {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [showActive, currentQuiz.currentIndex]);
+  }, [showActive, currentQuiz.currentIndex, currentQuiz.questions.length, handleNext]);
 
   const startQuiz = (category) => {
     const shuffledQuestions = [...quizQuestions[category]].sort(() => Math.random() - 0.5);
@@ -57,40 +90,6 @@ function Quiz({ showSection }) {
       ...prev,
       selectedAnswer: index
     }));
-  };
-
-  const handleNext = () => {
-    const currentQuestion = currentQuiz.questions[currentQuiz.currentIndex];
-    let newScore = currentQuiz.score;
-
-    if (currentQuiz.selectedAnswer === currentQuestion.correct) {
-      newScore++;
-    }
-
-    const newIndex = currentQuiz.currentIndex + 1;
-
-    if (newIndex < currentQuiz.questions.length) {
-      setCurrentQuiz(prev => ({
-        ...prev,
-        currentIndex: newIndex,
-        score: newScore,
-        selectedAnswer: null
-      }));
-      setTimer(15);
-    } else {
-      showSummaryScreen(newScore, currentQuiz.questions.length);
-    }
-  };
-
-  const showSummaryScreen = (score, total) => {
-    setCurrentQuiz(prev => ({
-      ...prev,
-      score: score
-    }));
-    
-    setShowActive(false);
-    setShowSummary(true);
-    setShowIntro(false);
   };
 
   const quitQuiz = () => {

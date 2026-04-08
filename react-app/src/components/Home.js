@@ -20,8 +20,8 @@ function Home({ showSection }) {
         </div>
 
         <div className="home-buttons">
-          <button className="btn-roadmap" onClick={() => showSection('roadmap')}>Create Roadmap ✏️</button>
-          <button className="btn-quiz" onClick={() => showSection('quiz')}>Take a Quiz 📝</button>
+          <button className="btn-roadmap" onClick={() => showSection('roadmap')}>Create Roadmap</button>
+          <button className="btn-quiz" onClick={() => showSection('quiz')}>Take a Quiz</button>
         </div>
       </div>
     </section>

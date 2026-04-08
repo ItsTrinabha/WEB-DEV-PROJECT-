@@ -3,10 +3,8 @@ import { syllabusData } from '../data';
 
 function Roadmap({ showSection }) {
   const [roadmapData, setRoadmapData] = useState([]);
-  const [selectedDomain, setSelectedDomain] = useState(null);
 
   const generateRoadmap = (domain) => {
-    setSelectedDomain(domain);
     setRoadmapData(syllabusData[domain]);
   };
 
