@@ -1,37 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import Roadmap from './components/Roadmap';
 import Quiz from './components/Quiz';
 import Footer from './components/Footer';
+import StudyPlanner from './components/StudyPlanner';
+import Profile from './components/Profile';
+import About from './components/About';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState('home');
+  const navigate = useNavigate();
 
-  const showSection = (sectionId) => {
-    setCurrentSection(sectionId);
-    window.scrollTo(0, 0);
-  };
+  const goToPage = (pageId) => {
+    const routeMap = {
+      home: '/',
+      roadmap: '/roadmap',
+      planner: '/planner',
+      quiz: '/quiz',
+      profile: '/profile',
+      about: '/about'
+    };
 
-  const renderSection = () => {
-    switch (currentSection) {
-      case 'home':
-        return <Home showSection={showSection} />;
-      case 'roadmap':
-        return <Roadmap showSection={showSection} />;
-      case 'quiz':
-        return <Quiz showSection={showSection} />;
-      default:
-        return <Home showSection={showSection} />;
-    }
+    navigate(routeMap[pageId] || '/');
   };
 
   return (
     <div className="body-main">
-      <Header showSection={showSection} />
+      <Header />
       <main className="main-content">
-        {renderSection()}
+        <Routes>
+          <Route path="/" element={<Home showSection={goToPage} />} />
+          <Route path="/roadmap" element={<Roadmap />} />
+          <Route path="/planner" element={<StudyPlanner />} />
+          <Route path="/quiz" element={<Quiz showSection={goToPage} />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer />
     </div>
