@@ -4,7 +4,7 @@ function Home({ showSection }) {
   return (
     <section className="animate-bounce-in">
       <div className="home-card">
-        <h2 className="section-title">Welcome to our project!</h2>
+        <h2 className="section-title">Welcome to Mindra!</h2>
         <p className="section-text">
           Hello! This is our combination project featuring an <b>Interactive Quiz Arena</b> and a <b>Roadmap Generator</b>. 
           We used JavaScript and React to create this dynamic interface.
