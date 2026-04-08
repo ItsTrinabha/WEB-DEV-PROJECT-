@@ -122,20 +122,26 @@ function Quiz({ showSection }) {
         <div className="quiz-intro">
           <div className="quiz-emoji">🤓</div>
           <h2 className="section-title quiz-title">Quiz Time!</h2>
-          <p className="quiz-desc">Pick a category to test your knowledge from the modules.</p>
+          <p className="quiz-desc">Pick a domain and test your knowledge.</p>
           
           <div className="quiz-categories">
-            <button className="category-btn" onClick={() => startQuiz('Fundamentals')}>
-              1. Web Basics
+            <button className="category-btn" onClick={() => startQuiz('AI')}>
+              1. AI
             </button>
-            <button className="category-btn" onClick={() => startQuiz('CSS')}>
-              2. CSS Styling
+            <button className="category-btn" onClick={() => startQuiz('WebDev')}>
+              2. Web Dev
             </button>
-            <button className="category-btn" onClick={() => startQuiz('JavaScript')}>
-              3. JavaScript
+            <button className="category-btn" onClick={() => startQuiz('Cybersecurity')}>
+              3. Cybersecurity
             </button>
-            <button className="category-btn" onClick={() => startQuiz('React')}>
-              4. React Core
+            <button className="category-btn" onClick={() => startQuiz('Cloud')}>
+              4. Cloud
+            </button>
+            <button className="category-btn" onClick={() => startQuiz('DevOps')}>
+              5. DevOps
+            </button>
+            <button className="category-btn" onClick={() => startQuiz('DataScience')}>
+              6. Data Science
             </button>
           </div>
         </div>
