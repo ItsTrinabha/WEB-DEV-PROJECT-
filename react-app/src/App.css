@@ -85,7 +85,7 @@ object {
 
 /* Library and Background */
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #0f172a;
     background-image: radial-gradient(#334155 1px, transparent 1px);
     background-size: 20px 20px;
@@ -93,7 +93,7 @@ body {
 }
 
 h1, h2, h3, .comic {
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 /* "Amateur" Sketchy Border Style */
