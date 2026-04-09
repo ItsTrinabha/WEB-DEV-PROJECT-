@@ -5,7 +5,6 @@ A beginner-friendly React conversion of the interactive learning platform with R
 ## Project Structure
 
 ```
-react-app/
 ├── public/
 │   └── index.html               # HTML template
 ├── src/
@@ -27,7 +26,6 @@ react-app/
 
 ### 1. Install Dependencies
 ```bash
-cd react-app
 npm install
 ```
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../favicon.png';
 
 function Header() {
+  const logo = '/favicon.png';
   return (
     <header className="header-main">
       <div className="header-brand-wrap">
